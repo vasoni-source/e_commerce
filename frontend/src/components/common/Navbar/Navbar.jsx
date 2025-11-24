@@ -28,7 +28,6 @@ export default function Navbar() {
       dispatch(getAllProducts());
     } else {
       dispatch(searchProduct({ searchTerm: searchQuery}));
- 
     }
   };
   return (

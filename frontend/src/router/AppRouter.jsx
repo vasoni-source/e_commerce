@@ -10,6 +10,7 @@ import ProductDetail from "../pages/Home/ProductDetail";
 import Wishlist from "../pages/User/Wishlist";
 import SellerDashboard from "../pages/Seller/SellerDashboard";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
+import ProtectedRoute from "./ProtectedRoute";
 export default function AppRouter() {
   return (
     <Routes>
@@ -19,14 +20,14 @@ export default function AppRouter() {
       <Route path="/user/verify_account" element={<Otp />} />
       <Route path="/user/register" element={<SignUp />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/wishlist" element={<Wishlist />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+      </Route>
 
       {/* seller-Routes */}
       <Route path="/seller_dashboard" element={<SellerDashboard />} />
       <Route path="/admin_dashboard" element={<AdminDashboard />} />
-
-
     </Routes>
   );
 }

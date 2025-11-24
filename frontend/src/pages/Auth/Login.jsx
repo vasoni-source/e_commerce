@@ -148,7 +148,7 @@ export default function Login() {
   error? <p className="text-red-600">{error}</p>:null
 }
         <p className="mt-10 text-center text-sm/6 text-gray-400">
-          Not a have an acount?{" "}
+          Not  have an acount?{" "}
           <Link
             to="/user/register"
             className="font-semibold text-indigo-400 hover:text-indigo-300"
