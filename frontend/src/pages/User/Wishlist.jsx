@@ -1,11 +1,14 @@
 import React, { useEffect ,useState} from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ShoppingBag } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { getWishlist } from "../../redux/thunk/wishlistThunk";
 import { addToCart } from "../../redux/thunk/cartThunk";
+import { getProductById } from "../../redux/thunk/productThunk";
 export default function Wishlist() {
   const dispatch = useDispatch();
+  const navigator = useNavigate();
   const wishlist = useSelector((state) => state.wishlist.wishlist);
   const user = useSelector((state) => state.user.user);
   const [messages, setMessages] = useState({});
@@ -26,6 +29,11 @@ export default function Wishlist() {
       navigator("/user/login");
     }
   };
+  const handleNavigate = (id) => {
+      console.log("product id fronm wishlist page", id);
+      dispatch(getProductById(id));
+      navigator(`/product_detail/${id}`);
+    };
 console.log("wishlist items",wishlist.items)
   return (
     <div className="bg-white rounded-lg shadow">
@@ -42,9 +50,10 @@ console.log("wishlist items",wishlist.items)
               src={item.imageUrl}
               alt={item.name}
               className="w-full h-48 object-cover"
+               onClick={() => handleNavigate(item.productId._id)}
             />
             <div className="p-4">
-              <h4 className="font-semibold text-gray-900 mb-2">{item.name}</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">{item.productId.name}</h4>
               <p className="text-lg font-bold text-indigo-600 mb-3">
                 ${item.price}
               </p>

@@ -90,14 +90,13 @@ export default function Cart() {
                           className="size-full object-cover"
                         />
                       </div>
-
                       <div className="ml-4 flex flex-1 flex-col">
                         <div>
                           <div className="flex justify-between text-base font-medium text-gray-900">
                             <h3>
-                              <a href={product.href}>{product.name}</a>
+                              <a href={product.href}>{product.productId.name}</a>
                             </h3>
-                            <p className="ml-4">{product.price}</p>
+                            <p className="ml-4">${product.price}</p>
                           </div>
                           <p className="mt-1 text-sm text-gray-500">
                             {product.color}
@@ -130,7 +129,7 @@ export default function Cart() {
             <div className="border-t border-gray-200 mt-8 pt-6">
               <div className="flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal</p>
-                <p>{totalPrice}</p>
+                <p>${totalPrice}</p>
               </div>
               <p className="mt-0.5 text-sm text-gray-500">
                 Shipping and taxes calculated at checkout.
@@ -148,87 +147,7 @@ export default function Cart() {
               )}
               {openAdvanceFields ? (
                 <>
-                  {/* <div className="border-t border-gray-200 mt-8 pt-6">
-                    <h2 className="text-lg font-medium text-gray-900 mb-4">
-                      Shipping Address
-                    </h2>
-                    <div className="space-y-4">
-                      <div>
-                        <label
-                          htmlFor="address"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Street Address
-                        </label>
-                        <input
-                          type="text"
-                          id="address"
-                          name="address"
-                          value={shippingAddress.address}
-                          onChange={(e) => handleShippingChange(e)}
-                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                          placeholder="123 Main St"
-                        />
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-4">
-                        <div>
-                          <label
-                            htmlFor="city"
-                            className="block text-sm font-medium text-gray-700"
-                          >
-                            City
-                          </label>
-                          <input
-                            type="text"
-                            id="city"
-                            name="city"
-                            value={shippingAddress.city}
-                            onChange={(e) => handleShippingChange(e)}
-                            className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                            placeholder="New York"
-                          />
-                        </div>
-
-                        <div>
-                          <label
-                            htmlFor="postalCode"
-                            className="block text-sm font-medium text-gray-700"
-                          >
-                            Postal Code
-                          </label>
-                          <input
-                            type="text"
-                            id="postalCode"
-                            name="postalCode"
-                            value={shippingAddress.postalCode}
-                            onChange={(e) => handleShippingChange(e)}
-                            className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                            placeholder="10001"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="country"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Country
-                        </label>
-                        <input
-                          type="text"
-                          id="country"
-                          name="country"
-                          value={shippingAddress.country}
-                          onChange={(e) => handleShippingChange(e)}
-                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                          placeholder="United States"
-                        />
-                      </div>
-                    </div>
-                    
-                  </div> */}
+                  
                   {/* SHIPPING ADDRESS SELECTION */}
                   <div className="border-t border-gray-200 mt-8 pt-6">
                     <h2 className="text-lg font-medium text-gray-900 mb-4">
