@@ -42,6 +42,7 @@ export const createOrder = async (req, res) => {
       product: item.productId, // NOT item.productId._id
       quantity: item.quantity,
       price: item.price,
+      name:item.name,
     }));
 
     const newOrder = new Order({

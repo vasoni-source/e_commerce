@@ -11,6 +11,10 @@ const cartItemSchema = mongoose.Schema({
         type:Number,
         required:true
     },
+    name:{
+        type:String,
+        required:true
+    }
    
 })
 const cartSchema = mongoose.Schema({

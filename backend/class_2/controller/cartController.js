@@ -22,8 +22,10 @@ export const addToCart = async (req, res) => {
       (item) => item.productId.toString() === productId
     );
     if (existingItemIndex > -1) {
+      console.log("inside if")
       cart.items[existingItemIndex].quantity += quantity;
     } else {
+      console.log("product name fron cart api",productItem.name);
       cart.items.push({ productId, quantity, price: productItem.price ,name:productItem.name});
     }
     cart.totalPrice = cart.items.reduce(
