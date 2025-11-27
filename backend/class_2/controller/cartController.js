@@ -24,7 +24,7 @@ export const addToCart = async (req, res) => {
     if (existingItemIndex > -1) {
       cart.items[existingItemIndex].quantity += quantity;
     } else {
-      cart.items.push({ productId, quantity, price: productItem.price });
+      cart.items.push({ productId, quantity, price: productItem.price ,name:productItem.name});
     }
     cart.totalPrice = cart.items.reduce(
       (sum, item) => sum + item.quantity * item.price,
